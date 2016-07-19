@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>恒阅读书会</title>
+		<link rel="icon" type="image/png" href="../favicon.png">
+		<link type="text/css" href="../medias/css/main.css" rel="stylesheet" media="screen">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	</head>
+	<body>
+		<div id="content">
+			<a href="#"><h1>恒阅</h1></a>
+			<h2><span>我们有秘密</span> <span>我们写日记</span></h2>
+			<h3><span>青春不记忆</span> <span>心有不日记</span></h3>
+		</div>
+
+		<a id="markout" href="#"><img src="img/markout.png" alt="MARKout" /></a>
+		<canvas id="bg" width="1920" height="1920"></canvas>
+
+		<script type="text/javascript">
+
+			// <teenageHacker>
+			setTimeout( function() {
+				document.getElementById( 'mail' )
+					.setAttribute( 'href', 'moc.ijirub@olleh:otliam'
+						.split( '' ).reverse().join( '' )
+					);
+			}, 1000 );
+			// </teenageHacker>
+
+			var ctx = bg.getContext( '2d' ),
+				img = new Image(),
+				r = 800;
+
+			img.src = 'img/light.png';
+
+			img.onload = function(){
+				var ptrn = ctx.createPattern( img, 'repeat' ),
+					grad = ctx.createRadialGradient( 960, 960, 0, 960, 960, r );
+
+				grad.addColorStop( .15, 'rgba(255,255,255,0)' );
+
+				for ( var i = .20; i < 1; i += .05 )
+					grad.addColorStop( i, 'rgba(255,255,255,' + Math.sin( 1.17 * ( i - .15 ) * .5 * Math.PI ) + ')' );
+
+				ctx.beginPath();
+				ctx.arc( 960, 960, r - 1, 0, 2 * Math.PI );
+				ctx.closePath();
+				ctx.fillStyle = ptrn;
+				ctx.fill();
+
+				ctx.globalCompositeOperation = 'destination-out';
+
+				ctx.beginPath();
+				ctx.arc( 960, 960, r, 0, 2 * Math.PI );
+				ctx.closePath();
+				ctx.fillStyle = grad;
+				ctx.fill();
+			}
+
+		</script>
+	</body>
+</html>
